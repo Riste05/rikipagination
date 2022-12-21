@@ -7,11 +7,11 @@ const select = document.getElementById('select');
 const button = document.querySelector('.button')
 
 
-window.addEventListener('DOMContentLoaded', dataAPI);
+// window.addEventListener('DOMContentLoaded', dataAPI);
 
 let html = ``;
 function dataAPI() {
-
+    container.innerHTML = '' ;
     fetch('https://randomuser.me/api?results=100')
         .then(res => res.json())
         .then(data => {
