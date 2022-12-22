@@ -2,6 +2,7 @@
 let co = console.log;
 
 const container = document.getElementById('container');
+const containerStrani = document.querySelector('.container-strani');
 let card = document.getElementsByClassName('card');
 const select = document.getElementById('select');
 const button = document.querySelector('.button')
@@ -9,10 +10,12 @@ const button = document.querySelector('.button')
 
 window.addEventListener('DOMContentLoaded', dataAPI);
 
+
 let html = ``;
+
 function dataAPI() {
 
-    fetch('https://randomuser.me/api?results=100')
+    fetch(`https://randomuser.me/api?results=100`)
         .then(res => res.json())
         .then(data => {
             let { results } = data;
@@ -30,16 +33,14 @@ function dataAPI() {
                     </div>
                 </div>
                 `;
-            });
-            container.insertAdjacentHTML('afterbegin', html)
+            })
+            container.insertAdjacentHTML('afterbegin', html);
 
         })
-
 }
 
 
 ////////////////////////////////////////////////////////
-
 
 
 let page = 1;
@@ -68,12 +69,10 @@ select.addEventListener('change', function (ele) {
             ele.style.display = 'none';
         })
     }
-
-
 })
 
 
-////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////
 
 function buttonElement(totalPage, page) {
 
@@ -96,8 +95,12 @@ function buttonElement(totalPage, page) {
 
 
     // gi dodava samo elementite
+    cards.forEach(ele => {
+        ele.style.display = 'none'
+    })
+
     pagination.forEach(ele => {
-        ele.style.display = ''
+        ele.style.display = '';
     })
 
 
