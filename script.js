@@ -16,7 +16,9 @@ function dataAPI() {
         .then(res => res.json())
         .then(data => {
             let { results } = data;
+
             results.forEach((element, i) => {
+
                 html += `
                 <div class="card" data-card=${i}>
                     <img src="${element.picture.medium}" alt="">
@@ -26,25 +28,27 @@ function dataAPI() {
                         <h4>${element.email}</h4>
                         <h3>${element.phone}</h3>
                     </div>
-                </div>`;
-
+                </div>
+                `;
             });
-            // container.insertAdjacentHTML('afterbegin', html)
-            container.innerHTML = html
+            container.insertAdjacentHTML('afterbegin', html)
+
         })
 
-};
-
+}
 
 
 ////////////////////////////////////////////////////////
 
+
+
 let page = 1;
 let optionValue;  // row
 let totalPage;
-
+let pagination;
 
 select.addEventListener('change', function (ele) {
+
 
     optionValue = ele.target.value;
     let cards = Array.from(card);
@@ -65,14 +69,14 @@ select.addEventListener('change', function (ele) {
         })
     }
 
+
 })
 
 
 ////////////////////////////////////////////////////
 
-const pagi = document.querySelector('.pagi')
 function buttonElement(totalPage, page) {
-    // button.innerHTML = '';
+
     let divTag = '';
     let activeDiv;
     let beforePage = page - 1;
@@ -85,7 +89,7 @@ function buttonElement(totalPage, page) {
     // strani so kopcinja da se menuva
     let start = (page - 1) * Number(optionValue);
     let end = start + Number(optionValue);
-    let pagination = cards.slice(start, end);
+    pagination = cards.slice(start, end);
 
     co(page, pagination)
     co(start, end)
@@ -93,8 +97,9 @@ function buttonElement(totalPage, page) {
 
     // gi dodava samo elementite
     pagination.forEach(ele => {
-        ele.style.display = '';
+        ele.style.display = ''
     })
+
 
 
     if (page > 2) {
