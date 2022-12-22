@@ -91,9 +91,9 @@ function buttonElement(totalPage, page) {
     let end = start + Number(optionValue);
     pagination = cards.slice(start, end);
 
-    co(page, pagination)
-    co(start, end)
-
+    cards.forEach(ele => {
+        ele.style.display = 'none';
+    })
 
     // gi dodava samo elementite
     pagination.forEach(ele => {
