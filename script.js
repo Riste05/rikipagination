@@ -7,11 +7,11 @@ const select = document.getElementById('select');
 const button = document.querySelector('.button')
 
 
-// window.addEventListener('DOMContentLoaded', dataAPI);
+window.addEventListener('DOMContentLoaded', dataAPI);
 
 let html = ``;
 function dataAPI() {
-    container.innerHTML = '' ;
+    container.innerHTML = '';
     fetch('https://randomuser.me/api?results=100')
         .then(res => res.json())
         .then(data => {
@@ -29,8 +29,8 @@ function dataAPI() {
                 </div>`;
 
             });
-            // container.insertAdjacentHTML('afterbegin', html)
-            container.innerHTML = html
+            container.insertAdjacentHTML('afterbegin', html)
+
         })
 
 };
@@ -89,6 +89,10 @@ function buttonElement(totalPage, page) {
 
     co(page, pagination)
     co(start, end)
+
+    cards.forEach(ele => {
+        ele.style.display = 'none';
+    })
 
 
     // gi dodava samo elementite
