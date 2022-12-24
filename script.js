@@ -54,6 +54,7 @@ select.addEventListener('change', function (ele) {
     let cards = Array.from(card);
     buttonElement(totalPage, page)
 
+
     cards.forEach(ele => {
         ele.style.display = '';
     })
@@ -61,11 +62,14 @@ select.addEventListener('change', function (ele) {
     if (ele.target.value === 'all') {
         cards.forEach(ele => {
             ele.style.display = '';
+            button.classList.add('hide')
         })
     }
     else if (ele.target.value !== 'all') {
         cards.slice(optionValue).forEach(ele => {
             ele.style.display = 'none';
+            button.classList.remove('hide')
+
         })
     }
 
