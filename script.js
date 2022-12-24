@@ -15,8 +15,8 @@ let html = ``;
 
 function dataAPI() {
 
-   
-  fetch('https://randomuser.me/api?results=100')
+
+    fetch('https://randomuser.me/api?results=100')
 
         .then(res => res.json())
         .then(data => {
@@ -100,11 +100,12 @@ function buttonElement(totalPage, page) {
         ele.style.display = 'none';
     })
 
-    // gi dodava samo elementite
+    // go brise fetch-ot
     cards.forEach(ele => {
         ele.style.display = 'none'
     })
 
+    // gi dodava samo elementite
     pagination.forEach(ele => {
         ele.style.display = '';
     })
